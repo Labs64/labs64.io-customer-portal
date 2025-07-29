@@ -11,6 +11,28 @@ TODO
 
 * TODO
 
+## 🐳 Docker Support
+
+This project includes a ready-to-use `Dockerfile` for a multi-stage production build using **Node.js** (for building) and **Nginx** (for serving the built files).
+
+### Build and Run the App with Docker
+
+1. Build the frontend assets:
+
+```bash
+npm run build
+```
+2. Build the Docker image (if needed):
+
+```bash
+docker build -t customer-portal .
+```
+
+3. Start the container using Docker Compose, which mounts the local dist folder into the container:
+```bash
+docker compose up -d
+```
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Labs64/labs64.io-customer-portal&type=Date)](https://www.star-history.com/#Labs64/labs64.io-customer-portal&Date)
