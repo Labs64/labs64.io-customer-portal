@@ -3,9 +3,9 @@
     <h5 class="mb-3">Menu</h5>
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link active"
-           href="#"
-        >Shop</a>
+        <RouterLink :to="{name: 'ShoppingCart'}">
+          Shop
+        </RouterLink>
       </li>
       <li class="nav-item">
         <a class="nav-link"
