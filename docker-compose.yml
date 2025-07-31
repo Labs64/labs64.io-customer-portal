@@ -1,8 +1,6 @@
 services:
-  customer-portal:
+  ecommerce:
     build: .
     ports:
       - "8080:80"
-    volumes:
-      - ./dist:/usr/share/nginx/html:ro
     restart: unless-stopped

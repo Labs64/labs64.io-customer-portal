@@ -1,13 +1,33 @@
-# Stage: Nginx runtime
+# Stage 1: Build
+FROM node:20 AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy dependencies and install
+COPY package*.json ./
+RUN npm install
+
+# Copy the rest of the source code
+COPY . .
+
+# Build the app
+RUN npm run build
+
+# Stage 2: Nginx runtime
 FROM nginx:alpine
 
-# Copy custom nginx config
+# Copy custom Nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Create app directory
-WORKDIR /usr/share/nginx/html
+# Remove default static files
+RUN rm -rf /usr/share/nginx/html/*
 
-# Keep the folder structure, but don't copy anything from host
-RUN rm -rf ./*
+# Copy built files from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# dist/ will be mounted as a volume at startup
+# Expose HTTP port
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
