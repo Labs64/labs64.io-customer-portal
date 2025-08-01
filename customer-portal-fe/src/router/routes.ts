@@ -4,8 +4,15 @@ const routes: Routes = [
   // Home
   {
     path: '/',
-    name: 'HomePage',
+    name: 'Home',
     component: () => import('@/views/pages/HomePage.vue'),
+    props: true,
+  },
+
+  {
+    path: '/shopping-cart',
+    name: 'ShoppingCart',
+    component: () => import('@/views/pages/ShoppingCartPage.vue'),
     props: true,
   },
 ];

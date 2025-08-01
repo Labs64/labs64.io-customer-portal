@@ -15,7 +15,7 @@ export default defineConfig({
       remotes: {
         ecommerce: 'http://localhost:8081/assets/remoteEntry.js',
       },
-      shared: ['vue', 'vue-router']
+      shared: ['vue', 'pinia'],
     }),
   ],
   resolve: {
@@ -25,5 +25,6 @@ export default defineConfig({
   },
   server: {
     port: 8080,
+    cors: true,
   },
 })
