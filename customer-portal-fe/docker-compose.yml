@@ -1,6 +1,6 @@
 services:
-  ecommerce:
-    build: ..
+  customer-portal-fe:
+    build: .
     ports:
       - "8080:80"
     restart: unless-stopped

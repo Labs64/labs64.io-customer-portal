@@ -3,7 +3,7 @@
 # Labs64.IO :: Customer Portal
 ## TODO
 
-![Docker Image Version](https://img.shields.io/docker/v/labs64/auditflow?logo=docker&logoColor=%23E14817&color=%23E14817) - TODO
+![Docker Image Version](https://img.shields.io/docker/v/labs64/customer-portal?logo=docker&logoColor=%23E14817&color=%23E14817)
 [![📖 Documentation](https://img.shields.io/badge/📖-Documentation-AB6543.svg)](https://github.com/Labs64/labs64.io-docs)
 
 TODO

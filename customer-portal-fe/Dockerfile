@@ -9,7 +9,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the source code
-COPY .. .
+COPY . .
 
 # Build the app
 RUN npm run build
