@@ -1,0 +1,66 @@
+name: Labs64.IO - Customer Portal UI - CI
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - "customer-portal-fe/**"
+      - ".github/workflows/customer-portal-fe-ci.yml"
+  pull_request:
+    paths:
+      - "customer-portal-fe/**"
+      - ".github/workflows/customer-portal-fe-ci.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: customer-portal-fe-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: customer-portal-fe
+
+    env:
+      CI: "true"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: |
+            customer-portal-fe/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # eslint config script hard-codes --fix; run a non-mutating check in CI instead.
+      - name: Lint
+        run: npx eslint .
+
+      - name: Type-check
+        run: npm run type-check
+
+      # package.json "test:unit" runs vitest in watch mode; force a single run in CI.
+      - name: Unit tests
+        run: npx vitest run
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: customer-portal-fe-dist
+          path: customer-portal-fe/dist/**
+          if-no-files-found: ignore
