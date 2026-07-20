@@ -24,7 +24,7 @@ defineOptions({
 
 // use head
 useHead({
-  bodyAttrs: { class: 'd-flex flex-column vh-100' }
+  bodyAttrs: { class: 'd-flex flex-column vh-100' },
 });
 
 const code = ref('codeA');
