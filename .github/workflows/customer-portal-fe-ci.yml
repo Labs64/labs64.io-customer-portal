@@ -21,46 +21,19 @@ permissions:
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: customer-portal-fe
+    uses: Labs64/labs64.io-workspace/.github/workflows/vue-ci.yml@master
+    with:
+      working-directory: customer-portal-fe
+      lint-command: npx eslint .
+      test-command: npx vitest run
+      upload-dist: true
 
-    env:
-      CI: "true"
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-          cache-dependency-path: |
-            customer-portal-fe/package-lock.json
-
-      - name: Install dependencies
-        run: npm ci
-
-      # eslint config script hard-codes --fix; run a non-mutating check in CI instead.
-      - name: Lint
-        run: npx eslint .
-
-      - name: Type-check
-        run: npm run type-check
-
-      # package.json "test:unit" runs vitest in watch mode; force a single run in CI.
-      - name: Unit tests
-        run: npx vitest run
-
-      - name: Build
-        run: npm run build
-
-      - name: Upload dist artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: customer-portal-fe-dist
-          path: customer-portal-fe/dist/**
-          if-no-files-found: ignore
+  edge-image:
+    needs: build-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    uses: Labs64/labs64.io-workspace/.github/workflows/docker-publish.yml@master
+    with:
+      image: labs64/customer-portal-ui
+      context: ./customer-portal-fe
+      mode: edge
+    secrets: inherit
