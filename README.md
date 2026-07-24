@@ -5,11 +5,18 @@
 ![Docker Image Version](https://img.shields.io/docker/v/labs64/customer-portal?logo=docker&logoColor=%23E14817&color=%23E14817)
 [![📖 Documentation](https://img.shields.io/badge/📖-Documentation-AB6543.svg)](https://github.com/Labs64/labs64.io-docs)
 
-TODO
+Self-service portal for Labs64.IO end-users — a Vue 3 single-page app for managing
+accounts, subscriptions, and their interactions with the ecosystem's services.
+Authentication is handled at the edge via the Traefik auth-proxy (OIDC/JWT). A Java
+backend is planned but not yet implemented; see [`AGENTS.md`](AGENTS.md) for the
+current layout and developer guide.
 
 ## Key Features
 
-* TODO
+- Vue 3 (Composition API) SPA with Bootstrap 5 + Bootstrap Vue Next.
+- Runtime configuration injected via a mounted `env.json` ConfigMap — the same image runs in every environment.
+- Module federation support (`@originjs/vite-plugin-federation`) for composing micro-frontends.
+- Multi-stage Docker build (Node for building, Nginx for serving).
 
 ## 🐳 Docker Support
 
