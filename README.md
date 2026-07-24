@@ -86,3 +86,7 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+
+## License
+
+The core of the *Labs64.IO Ecosystem* is entirely open source and free forever. Community modules are licensed under [Apache License 2.0](LICENSE).
