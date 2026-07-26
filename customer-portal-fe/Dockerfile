@@ -17,6 +17,16 @@ RUN npm run build
 # Stage 2: Nginx runtime (non-root, unprivileged — runs as UID 101, listens on 8080)
 FROM nginxinc/nginx-unprivileged:1.27-alpine
 
+ARG GIT_REVISION=unknown
+
+LABEL org.opencontainers.image.title="Labs64.IO :: Customer Portal" \
+      org.opencontainers.image.description="Customer-facing portal UI for the Labs64.IO Ecosystem" \
+      org.opencontainers.image.url="https://labs64.io" \
+      org.opencontainers.image.source="https://github.com/Labs64/labs64.io-customer-portal" \
+      org.opencontainers.image.licenses="Apache-2.0" \
+      org.opencontainers.image.revision="${GIT_REVISION}" \
+      io.labs64.edition="ce"
+
 # File operations need root; the base image drops back to the unprivileged user for runtime.
 USER root
 
