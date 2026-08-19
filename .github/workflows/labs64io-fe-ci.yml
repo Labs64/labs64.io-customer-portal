@@ -5,11 +5,11 @@ on:
     branches: [ "master" ]
     paths:
       - "customer-portal-fe/**"
-      - ".github/workflows/customer-portal-fe-ci.yml"
+      - ".github/workflows/labs64io-fe-ci.yml"
   pull_request:
     paths:
       - "customer-portal-fe/**"
-      - ".github/workflows/customer-portal-fe-ci.yml"
+      - ".github/workflows/labs64io-fe-ci.yml"
   workflow_dispatch:
 
 concurrency:
