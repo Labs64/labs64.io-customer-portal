@@ -3,3 +3,12 @@ APP_NAME := "customer-portal"
 # build application
 build:
     npm ci
+    npm run build
+
+# start local dev stack (docker compose)
+dev-up:
+    docker compose up -d
+
+# stop local dev stack (docker compose)
+dev-down:
+    docker compose down

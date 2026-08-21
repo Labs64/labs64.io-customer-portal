@@ -38,7 +38,7 @@ npm run build
 docker build -t customer-portal .
 ```
 
-3. Start the container using Docker Compose, which mounts the local dist folder into the container:
+3. Start the container using Docker Compose (builds the image per the `Dockerfile` above):
 ```bash
 docker compose up -d
 ```

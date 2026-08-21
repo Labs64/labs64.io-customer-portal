@@ -6,7 +6,7 @@ Customer-facing portal — Vue 3 frontend SPA. Java backend planned but not yet 
 
 | Path | Service | Stack | Port |
 |------|---------|-------|------|
-| `customer-portal-fe/` | Frontend | Vue 3, Vite 7, Pinia, TypeScript | 5173 (dev) |
+| `customer-portal-fe/` | Frontend | Vue 3, Vite 8, Pinia, TypeScript | 8080 (dev) |
 | `customer-portal-be/` | Backend | (stub) | — |
 
 ## Frontend details
@@ -28,7 +28,7 @@ npm run test:e2e    # Cypress E2E
 npm run lint        # ESLint
 ```
 
-Local URL: `http://localhost:5173`.
+Local URL: `http://localhost:8080` (see `vite.config.ts` `server.port`).
 
 ## Where to make common changes
 

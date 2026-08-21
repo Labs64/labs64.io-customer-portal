@@ -5,10 +5,10 @@ updates:
     schedule:
       interval: "weekly" 
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/customer-portal-fe"
     schedule:
-      interval: "weekly" 
+      interval: "weekly"
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/customer-portal-fe"
     schedule:
-      interval: "weekly" 
+      interval: "weekly"
