@@ -1,12 +1,12 @@
 # Stage 1: Build
-FROM node:26 AS builder
+FROM node:24-bookworm-slim AS builder
 
 # Set working directory
 WORKDIR /app
 
 # Copy dependencies and install
 COPY package*.json ./
-RUN npm ci
+RUN CYPRESS_INSTALL_BINARY=0 npm ci
 
 # Copy the rest of the source code
 COPY . .
@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Nginx runtime (non-root, unprivileged — runs as UID 101, listens on 8080)
-FROM nginxinc/nginx-unprivileged:1.30-alpine
+FROM nginxinc/nginx-unprivileged:1.30-alpine-slim
 
 ARG GIT_REVISION=unknown
 
