@@ -24,7 +24,7 @@ jobs:
     uses: Labs64/labs64.io-workspace/.github/workflows/vue-ci.yml@master
     with:
       working-directory: customer-portal-fe
-      node-version: "22"
+      node-version: "24"
       lint-command: npx eslint .
       test-command: npx vitest run --passWithNoTests
       upload-dist: true
