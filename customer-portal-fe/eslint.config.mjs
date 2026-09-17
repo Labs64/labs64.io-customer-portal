@@ -4,7 +4,7 @@ import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescri
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { configureVueProject } from '@vue/eslint-config-typescript';
-import pluginCypress from 'eslint-plugin-cypress/flat';
+import pluginCypress from 'eslint-plugin-cypress';
 import importPlugin from 'eslint-plugin-import';
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
