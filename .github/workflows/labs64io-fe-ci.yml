@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   build-test:
-    uses: Labs64/labs64.io-workspace/.github/workflows/vue-ci.yml@master
+    uses: Labs64/labs64.io-workspace/.github/workflows/vue-ci.yml@v1
     with:
       working-directory: customer-portal-fe
       node-version: "26"
@@ -32,7 +32,7 @@ jobs:
   edge-image:
     needs: build-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    uses: Labs64/labs64.io-workspace/.github/workflows/docker-publish.yml@master
+    uses: Labs64/labs64.io-workspace/.github/workflows/docker-publish.yml@v1
     with:
       image: labs64/customer-portal-ui
       context: ./customer-portal-fe

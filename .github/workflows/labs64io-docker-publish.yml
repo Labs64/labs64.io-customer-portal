@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   publish:
-    uses: Labs64/labs64.io-workspace/.github/workflows/docker-publish.yml@master
+    uses: Labs64/labs64.io-workspace/.github/workflows/docker-publish.yml@v1
     with:
       image: labs64/customer-portal-ui
       context: ./customer-portal-fe
@@ -21,7 +21,7 @@ jobs:
   propagate-to-chart:
     name: Pin digest in charts/customer-portal
     needs: publish
-    uses: Labs64/labs64.io-workspace/.github/workflows/chart-update-dispatch.yml@master
+    uses: Labs64/labs64.io-workspace/.github/workflows/chart-update-dispatch.yml@v1
     with:
       chart: customer-portal
       version: ${{ github.event.release.tag_name }}
