@@ -5,7 +5,6 @@ import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescri
 // @ts-ignore
 import { configureVueProject } from '@vue/eslint-config-typescript';
 import pluginCypress from 'eslint-plugin-cypress';
-import importPlugin from 'eslint-plugin-import';
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 import pluginVue from 'eslint-plugin-vue';
@@ -40,10 +39,6 @@ export default defineConfigWithVueTs(
   skipFormatting,
 
   {
-    plugins: {
-      import: importPlugin,
-    },
-
     rules: {
       // General
       'no-console': ['error', { allow: ['warn', 'error'] }],
@@ -59,31 +54,6 @@ export default defineConfigWithVueTs(
       'linebreak-style': 'off',
       'max-len': ['error', 120, { ignoreTrailingComments: true }],
       'object-curly-newline': ['error', { consistent: true }],
-
-      // Import plugin
-      'import/order': [
-        'warn',
-        {
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-          pathGroups: [
-            {
-              pattern: '@/**',
-              group: 'internal',
-              position: 'before',
-            },
-            {
-              pattern: '@test-utils/**',
-              group: 'internal',
-              position: 'before',
-            },
-          ],
-          pathGroupsExcludedImportTypes: ['builtin'],
-        },
-      ],
 
       // TypeScript-specific
       '@typescript-eslint/no-unused-vars': ['error', { caughtErrors: 'none' }],
