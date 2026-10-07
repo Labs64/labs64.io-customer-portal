@@ -12,7 +12,7 @@ Customer-facing portal — Vue 3 frontend SPA. Java backend planned but not yet 
 ## Frontend details
 
 - Vue 3 Composition API, Bootstrap 5 + Bootstrap Vue Next.
-- E2E: Cypress. Unit: Vitest. Linting: ESLint + Prettier.
+- E2E: Playwright. Unit: Vitest. Linting: ESLint + Prettier.
 - Module federation available (`@originjs/vite-plugin-federation`) but usage TBD.
 - Runtime config: `env.json` mounted as ConfigMap in K8s.
 
@@ -24,7 +24,7 @@ just build          # npm install + npm run build
 just dev-up         # docker compose up
 just dev-down       # docker compose down
 npm run test:unit   # Vitest
-npm run test:e2e    # Cypress E2E
+npm run test:e2e    # Playwright E2E
 npm run lint        # ESLint
 ```
 
@@ -35,5 +35,5 @@ Local URL: `http://localhost:8080` (see `vite.config.ts` `server.port`).
 | Goal | Where |
 |------|-------|
 | Frontend components | `customer-portal-fe/src/` |
-| E2E tests | `customer-portal-fe/cypress/` |
+| E2E tests | `customer-portal-fe/e2e/` |
 | Vite config | `customer-portal-fe/vite.config.ts` |

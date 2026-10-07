@@ -75,19 +75,17 @@ npm run build
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+### Run End-to-End Tests with [Playwright](https://playwright.dev/)
 
 ```sh
+npx playwright install chromium
 npm run test:e2e:dev
 ```
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+Playwright starts the Vite development server automatically and opens its
+interactive UI. To test the production build:
 
 ```sh
-npm run build
 npm run test:e2e
 ```
 
