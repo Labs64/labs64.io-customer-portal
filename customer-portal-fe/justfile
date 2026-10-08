@@ -1,14 +1,14 @@
 APP_NAME := "customer-portal"
 
-# build application
+# Install the npm dependencies and build the frontend
 build:
     npm ci
     npm run build
 
-# start local dev stack (docker compose)
+# Start the local dev stack with Docker Compose
 dev-up:
     docker compose up -d
 
-# stop local dev stack (docker compose)
+# Stop the local dev stack
 dev-down:
     docker compose down

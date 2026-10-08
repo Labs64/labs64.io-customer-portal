@@ -1,21 +1,21 @@
 APP_NAME := "customer-portal"
 
-# build application
+# Compile and package the application
 build:
     mvn clean package
 
-# build docker image
+# Build the application and the Docker image, then push it to the local registry
 docker: build
     docker build -t {{APP_NAME}}:latest .
     docker tag {{APP_NAME}}:latest localhost:5005/{{APP_NAME}}:latest
     docker push localhost:5005/{{APP_NAME}}:latest
     docker images | grep "{{APP_NAME}}"
 
-# run application
+# Build the application and run it with the local Spring profile
 run: build
     mvn spring-boot:run -Dspring-boot.run.profiles=local
 
-# check maven dependencies/plugins/properties updates
+# Show available Maven dependency, plugin and property updates, and scan the Docker image for CVEs
 check-updates:
     mvn versions:display-plugin-updates -Dmaven.version.ignore='(?i).*[.-]?(alpha|beta|RC|M)\d*'
     mvn versions:display-property-updates -Dmaven.version.ignore='(?i).*[.-]?(alpha|beta|RC|M)\d*'
