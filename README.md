@@ -21,6 +21,10 @@ current layout and developer guide.
 - Module federation support (`@originjs/vite-plugin-federation`) for composing micro-frontends.
 - Multi-stage Docker build (Node for building, Nginx for serving).
 
+## Get started
+
+To see the portal inside the platform, [run the full ecosystem locally](https://labs64.io/docs/getting-started/run-the-full-ecosystem-locally/) and open `http://gateway.localhost/customer-portal`. To work on the portal alone, use the commands under [Project Setup](#project-setup).
+
 ## 🐳 Docker Support
 
 This project includes a ready-to-use `Dockerfile` for a multi-stage production build using **Node.js** (for building) and **Nginx** (for serving the built files).
