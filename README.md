@@ -18,11 +18,22 @@
 
 ## Why Customer Portal?
 
-Customers should be able to manage their account without opening a support ticket, and the page that lets them should deploy like the rest of your platform. Customer Portal provides the shell:
+Customers want to manage their account without writing to support, and the page that lets them should be deployed and secured like the rest of your platform. Customer Portal is the front-end shell for that.
 
 1. **One static image.** A multi-stage build produces files served by unprivileged nginx, so it runs on any cluster or static host.
 2. **Fits the edge.** Authentication is handled at the API gateway (OIDC/JWT); the app itself is static files.
 3. **Built to be composed.** Module federation support lets micro-frontends plug into the portal.
+
+**A good fit if**
+
+- You are on the Labs64.IO platform and want a customer-facing app that deploys the same way as the services.
+- You prefer a static, cache-friendly front end with authentication handled at the gateway.
+- You want a Vue 3 starting point you can extend, with unit and end-to-end tests already wired.
+
+**Probably not what you need if**
+
+- You need a finished self-service product today: this is a shell with a home page and a cart page, and the backend is planned.
+- You need server-side rendering or a CMS.
 
 ## Get started
 
@@ -47,16 +58,17 @@ Not sure? Start with **3** to see the portal in your browser in a minute, or **1
 
 ### 1. `install.sh`: the quick ecosystem start
 
-One script installs the platform (gateway, authentication, AuditFlow and Payment Gateway) on any Kubernetes cluster, then proves it with a real request. Customer Portal is an optional module: answer **yes** to "Enable Customer Portal" in the BYO profile. No cluster? A throwaway one on your laptop is enough:
+One script installs the platform (gateway, authentication, AuditFlow and Payment Gateway) on any Kubernetes cluster, then proves it with a real request. Customer Portal is an optional module: answer **yes** to "Enable Customer Portal" in the BYO profile.
 
 ```bash
-k3d cluster create labs64io-demo -p "8000:80@loadbalancer" --k3s-arg "--disable=traefik@server:0"   # optional
+# No cluster yet? A throwaway one needs only Docker and k3d:
+k3d cluster create labs64io-demo -p "8000:80@loadbalancer" --k3s-arg "--disable=traefik@server:0"
 
 curl -fsSL https://raw.githubusercontent.com/Labs64/labs64.io-helm-charts/master/install.sh -o install.sh
 bash install.sh
 ```
 
-Press Enter three times to take the defaults. You finish with a gateway you can `curl`, interactive API docs and a working token flow:
+Press Enter three times to take the defaults. A few minutes later you should see:
 
 ```text
   PASS  Obtained a demo access token from mock-oidc
@@ -67,19 +79,20 @@ Press Enter three times to take the defaults. You finish with a gateway you can 
    API docs:  http://localhost:8000/swagger-ui/
 ```
 
-The Quickstart profile installs AuditFlow and Payment Gateway only; Customer Portal is offered by the BYO profile, which asks for your identity provider's discovery URL. The same script later runs `status`, `stop`, `start` and `uninstall`. This is an evaluation install with a demo identity provider: keep it on a local or private cluster. Details: [Quickstart](https://labs64.io/docs/getting-started/quickstart/) · [`install.sh`](https://github.com/Labs64/labs64.io-helm-charts/blob/master/install.sh).
+The Quickstart profile installs AuditFlow and Payment Gateway only; Customer Portal is offered by the BYO profile, which asks for your identity provider's discovery URL. The same script later runs `status`, `stop`, `start` and `uninstall`. This is an evaluation install with a demo identity provider: keep it on a local or private cluster. Details: [Quickstart](https://labs64.io/docs/getting-started/quickstart.html) · [`install.sh`](https://github.com/Labs64/labs64.io-helm-charts/blob/master/install.sh).
 
 ### 2. Kubernetes: on your own cluster
 
-Install the portal from its Helm chart and put it behind your gateway:
+The portal chart has no backend dependency, so this is the shortest install of any module:
 
 ```bash
 helm repo add labs64io https://labs64.github.io/labs64.io-helm-charts
 helm repo update
+
 helm install my-portal labs64io/customer-portal -n labs64io --create-namespace
 ```
 
-The chart has no backend dependency; set `ui.enabled`. Guides: [Deploy to your Kubernetes cluster](https://labs64.io/docs/getting-started/deploy-to-kubernetes/) · [Helm chart on Artifact Hub](https://artifacthub.io/packages/helm/labs64io-helm-charts/customer-portal).
+Put it behind your gateway route at `/customer-portal`. Guides: [Deploy to your Kubernetes cluster](https://labs64.io/docs/getting-started/deploy-to-kubernetes.html) · [Helm chart on Artifact Hub](https://artifacthub.io/packages/helm/labs64io-helm-charts/customer-portal).
 
 ### 3. Docker: on your machine
 
@@ -107,7 +120,7 @@ npm run lint         # ESLint
 docker build -t customer-portal-ui .
 ```
 
-[`AGENTS.md`](AGENTS.md) describes the layout, commands and tests; the [Contributing guide](https://labs64.io/docs/development/contributing/) covers the workflow.
+[`AGENTS.md`](AGENTS.md) describes the layout, commands and tests; the [Contributing guide](https://labs64.io/docs/development/contributing.html) covers the workflow.
 
 ### Where next?
 
@@ -116,9 +129,11 @@ Everything below is in the [Customer Portal documentation](https://labs64.io/doc
 | I want to… | Read |
 |---|---|
 | Understand where the portal fits | [Customer Portal documentation](https://labs64.io/docs/modules/customer-portal/) |
-| Run it inside the whole platform | [Run the full ecosystem locally](https://labs64.io/docs/getting-started/run-the-full-ecosystem-locally/) |
-| Deploy it behind my gateway | [Deploy to your Kubernetes cluster](https://labs64.io/docs/getting-started/deploy-to-kubernetes/) |
-| Compare all the ways to run Labs64.IO | [Choose a deployment path](https://labs64.io/docs/getting-started/choose-a-deployment-path/) |
+| Run it inside the whole platform | [Run the full ecosystem locally](https://labs64.io/docs/getting-started/run-the-full-ecosystem-locally.html) |
+| Deploy it behind my gateway | [Deploy to your Kubernetes cluster](https://labs64.io/docs/getting-started/deploy-to-kubernetes.html) |
+| Compare all the ways to run Labs64.IO | [Choose a deployment path](https://labs64.io/docs/getting-started/choose-a-deployment-path.html) |
+
+Something not working? [Troubleshooting your first run](https://labs64.io/docs/getting-started/troubleshooting.html) covers the usual suspects, and you are always welcome to [open an issue](https://github.com/Labs64/labs64.io-customer-portal/issues).
 
 ## Features
 
@@ -146,6 +161,15 @@ Everything below is in the [Customer Portal documentation](https://labs64.io/doc
 ```
 
 A backend (`customer-portal-be`) is planned; today the repository ships the front end.
+
+## What is here today
+
+| In the repository | Planned |
+|---|---|
+| Vue 3 + Vite + TypeScript single-page app with a home page and a shopping-cart page | `customer-portal-be`, a Java backend |
+| Multi-stage Docker build served by unprivileged nginx | Account, subscription and order views backed by the platform APIs |
+| Unit tests (Vitest), end-to-end tests (Playwright), ESLint | Runtime configuration through a mounted file |
+| Helm chart and a published `edge` image | A tagged release image |
 
 ## Using Customer Portal with AI agents
 
@@ -175,11 +199,11 @@ Customer Portal is one module of the [Labs64.IO Ecosystem](https://labs64.io); [
 
 ## Contributing
 
-Contributions of all sizes are welcome. Fork, branch, run the checks described in [`AGENTS.md`](AGENTS.md), and open a pull request. If you are unsure whether something fits, open an issue first.
+We would love your help. Because the portal is young, shaping what it should do first is as valuable as code: open an issue describing what your customers need. Fork the repository, make your change on a branch, run the checks described in [`AGENTS.md`](AGENTS.md) and open a pull request. Not sure whether an idea fits? Open an issue first and we will talk it through; that is a perfectly good way to start.
 
 ## License
 
-The core of the *Labs64.IO Ecosystem* is entirely open source and free forever. Community modules are licensed under [Apache License 2.0](LICENSE).
+Everything in this repository is open source under the [Apache License 2.0](LICENSE): you can use it, change it and ship it commercially. The core of the *Labs64.IO Ecosystem* is free forever; community modules are Apache-2.0 licensed.
 
 ---
 
