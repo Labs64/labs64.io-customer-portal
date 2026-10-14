@@ -1,164 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<svg viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg" width="1200" height="640" role="img" aria-labelledby="t d">
 <title id="t">Labs64.IO Customer Portal</title>
-<desc id="d">Customers and account admins open a single-page app served as static files by unprivileged nginx behind the API gateway.</desc>
+<desc id="d">An exploded view of the Customer Portal image: a Vue 3 app, static files, unprivileged nginx and any host collapse into one static image, while sign-in happens with OIDC at the gateway edge.</desc>
 <defs>
-  <radialGradient id="g1" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#E14817" stop-opacity=".45"/><stop offset="1" stop-color="#E14817" stop-opacity="0"/></radialGradient>
-  <radialGradient id="g2" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F2951C" stop-opacity=".22"/><stop offset="1" stop-color="#F2951C" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#F8EDE5" stroke-opacity=".06"/></pattern>
-  <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  <clipPath id="win"><rect width="1200" height="640" rx="18"/></clipPath>
-  <path id="pi0" d="M280,300 C355,300 355,355 430,355"/>
-  <path id="pi1" d="M280,370 C355,370 355,385 430,385"/>
-  <path id="pi2" d="M280,440 C355,440 355,425 430,425"/>
-  <path id="pi3" d="M280,510 C355,510 355,455 430,455"/>
-  <path id="po0" d="M770,355 C845,355 845,300 920,300"/>
-  <path id="po1" d="M770,385 C845,385 845,370 920,370"/>
-  <path id="po2" d="M770,425 C845,425 845,440 920,440"/>
-  <path id="po3" d="M770,455 C845,455 845,510 920,510"/>
-  <style>
+<radialGradient id="hg1" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E14817" stop-opacity=".45"/><stop offset="1" stop-color="#E14817" stop-opacity="0"/></radialGradient>
+<radialGradient id="hg2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F2951C" stop-opacity=".22"/><stop offset="1" stop-color="#F2951C" stop-opacity="0"/></radialGradient>
+<pattern id="hgrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#F8EDE5" stroke-opacity=".06"/></pattern>
+<filter id="hglow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<clipPath id="hwin"><rect width="1200" height="640" rx="18"/></clipPath>
+<style>
     .sans{font-family:Roboto,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif}
     .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
-    @media (prefers-reduced-motion: reduce){ animate, animateMotion{display:none} }
+    text{white-space:pre}
+    @media (prefers-reduced-motion: reduce){ animate, animateMotion, animateTransform{display:none} }
   </style>
 </defs>
-<g clip-path="url(#win)">
-  <rect width="1200" height="640" fill="#170A05"/>
-  <rect width="1200" height="640" fill="url(#grid)"/>
-  <ellipse cx="180" cy="40" rx="420" ry="300" fill="url(#g1)"/>
-  <ellipse cx="1040" cy="560" rx="360" ry="260" fill="url(#g2)"/>
-  <rect width="1200" height="44" fill="#22100A"/>
-  <line x1="0" y1="44" x2="1200" y2="44" stroke="#F8EDE5" stroke-opacity=".1"/>
-  <circle cx="28" cy="22" r="6" fill="#E14817"/><circle cx="50" cy="22" r="6" fill="#F2951C"/><circle cx="72" cy="22" r="6" fill="#87888A"/>
-  <text x="600" y="27" text-anchor="middle" class="mono" font-size="13" fill="#87888A" letter-spacing=".5">labs64.io-customer-portal · /customer-portal</text>
-  <text x="64" y="100" class="sans" font-size="13" font-weight="500" letter-spacing="3.6" fill="#F08B53">LABS64.IO  ·  CUSTOMER PORTAL</text>
-  <text x="64" y="156" class="sans" font-size="48" font-weight="700" letter-spacing="-1.4" fill="#F8EDE5">A portal your customers sign in to.</text>
-  <text x="64" y="212" class="sans" font-size="48" font-weight="700" letter-spacing="-1.4" fill="#E14817">One static image, any cluster.</text>
-  <text x="1136" y="212" text-anchor="end" class="mono" font-size="14" fill="#F8EDE5" fill-opacity=".6">Vue 3  ·  Vite  ·  edge auth</text>
-<use href="#pi0" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<use href="#po0" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<use href="#pi1" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<use href="#po1" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<use href="#pi2" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<use href="#po2" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<use href="#pi3" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<use href="#po3" fill="none" stroke="#F8EDE5" stroke-opacity=".22" stroke-width="1.5"/>
-<text x="64" y="262" class="mono" font-size="12" letter-spacing="2.4" fill="#87888A">WHO OPENS IT</text>
-<rect x="64" y="274" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<circle cx="86" cy="300" r="4" fill="#E14817"/>
-<text x="102" y="297" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Customer</text>
-<text x="102" y="315" class="mono" font-size="11.5" fill="#F08B53">manages an account</text>
-<rect x="64" y="274" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="0.0s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<rect x="64" y="344" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<circle cx="86" cy="370" r="4" fill="#E14817"/>
-<text x="102" y="367" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Account admin</text>
-<text x="102" y="385" class="mono" font-size="11.5" fill="#F08B53">invites a team</text>
-<rect x="64" y="344" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="0.25s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<rect x="64" y="414" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<circle cx="86" cy="440" r="4" fill="#E14817"/>
-<text x="102" y="437" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Support agent</text>
-<text x="102" y="455" class="mono" font-size="11.5" fill="#F08B53">helps on behalf</text>
-<rect x="64" y="414" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="0.5s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<rect x="64" y="484" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<circle cx="86" cy="510" r="4" fill="#E14817"/>
-<text x="102" y="507" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Partner</text>
-<text x="102" y="525" class="mono" font-size="11.5" fill="#F08B53">white-label access</text>
-<rect x="64" y="484" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="0.75s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<rect x="430" y="262" width="340" height="286" rx="14" fill="#F8EDE5" fill-opacity=".05" stroke="#F08B53" stroke-opacity=".55"/>
-<text x="454" y="293" class="mono" font-size="12" letter-spacing="2.4" fill="#F08B53">CUSTOMER PORTAL</text>
-<rect x="454" y="308" width="64" height="34" rx="8" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<rect x="454" y="308" width="64" height="34" rx="8" fill="#E14817" opacity="0">
-  <animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1917;0.2167;0.3167;0.3417;1.0000"/></rect>
-<text x="486" y="330" text-anchor="middle" class="mono" font-size="12" font-weight="500" fill="#F8EDE5">Sign in</text>
-<rect x="530" y="308" width="64" height="34" rx="8" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<rect x="530" y="308" width="64" height="34" rx="8" fill="#E14817" opacity="0">
-  <animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3083;0.3333;0.4333;0.4583;1.0000"/></rect>
-<text x="562" y="330" text-anchor="middle" class="mono" font-size="12" font-weight="500" fill="#F8EDE5">Route</text>
-<rect x="606" y="308" width="64" height="34" rx="8" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<rect x="606" y="308" width="64" height="34" rx="8" fill="#E14817" opacity="0">
-  <animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4250;0.4500;0.5500;0.5750;1.0000"/></rect>
-<text x="638" y="330" text-anchor="middle" class="mono" font-size="12" font-weight="500" fill="#F8EDE5">Serve</text>
-<rect x="682" y="308" width="64" height="34" rx="8" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<rect x="682" y="308" width="64" height="34" rx="8" fill="#E14817" opacity="0">
-  <animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5417;0.5667;0.6667;0.6917;1.0000"/></rect>
-<text x="714" y="330" text-anchor="middle" class="mono" font-size="12" font-weight="500" fill="#F8EDE5">Render</text>
-<rect x="454" y="360" width="292" height="34" rx="8" fill="none" stroke="#F8EDE5" stroke-opacity=".2" stroke-dasharray="4 4"/>
-<text x="600" y="382" text-anchor="middle" class="mono" font-size="11.5" fill="#F8EDE5" fill-opacity=".7">static files · unprivileged nginx</text>
-<rect x="454" y="410" width="292" height="122" rx="10" fill="#0A0402" fill-opacity=".6" stroke="#F8EDE5" stroke-opacity=".15"/>
-<g class="mono" font-size="12.5" fill="#F8EDE5">
-  <text x="470" y="436" fill-opacity=".5">{</text>
-  <text x="486" y="458"><tspan fill="#F08B53">"image"</tspan>: "customer-portal-ui",</text>
-  <text x="486" y="480"><tspan fill="#F08B53">"server"</tspan>: "nginx-unprivileged",</text>
-  <g><text x="486" y="502"><tspan fill="#F08B53">"status"</tspan>: "starting"</text>
-    <animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" values="1;1;0;0;1;1" keyTimes="0.0000;0.3083;0.3333;0.9333;0.9833;1.0000"/></g>
-  <g opacity="0"><text x="486" y="502"><tspan fill="#F08B53">"status"</tspan>: <tspan fill="#E14817" font-weight="700">"ready"</tspan></text>
-    <animate attributeName="opacity" dur="6.0s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3083;0.3333;0.9333;0.9833;1.0000"/></g>
-  <text x="470" y="524" fill-opacity=".5">}</text>
-</g>
-<text x="920" y="262" class="mono" font-size="12" letter-spacing="2.4" fill="#87888A">WHERE IT RUNS</text>
-<rect x="920" y="274" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<text x="942" y="297" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Kubernetes</text>
-<text x="942" y="315" class="mono" font-size="11.5" fill="#F08B53">Helm chart</text>
-<path d="M1112,295 l5,5 l-5,5" fill="none" stroke="#E14817" stroke-width="2" stroke-linecap="round"/>
-<rect x="920" y="274" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="4.4s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<rect x="920" y="344" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<text x="942" y="367" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Docker</text>
-<text x="942" y="385" class="mono" font-size="11.5" fill="#F08B53">one container</text>
-<path d="M1112,365 l5,5 l-5,5" fill="none" stroke="#E14817" stroke-width="2" stroke-linecap="round"/>
-<rect x="920" y="344" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="4.6000000000000005s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<rect x="920" y="414" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<text x="942" y="437" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Any static host</text>
-<text x="942" y="455" class="mono" font-size="11.5" fill="#F08B53">just the files</text>
-<path d="M1112,435 l5,5 l-5,5" fill="none" stroke="#E14817" stroke-width="2" stroke-linecap="round"/>
-<rect x="920" y="414" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="4.800000000000001s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<rect x="920" y="484" width="216" height="52" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/>
-<text x="942" y="507" class="sans" font-size="15" font-weight="700" fill="#F8EDE5">Behind the gateway</text>
-<text x="942" y="525" class="mono" font-size="11.5" fill="#F08B53">OIDC at the edge</text>
-<path d="M1112,505 l5,5 l-5,5" fill="none" stroke="#E14817" stroke-width="2" stroke-linecap="round"/>
-<rect x="920" y="484" width="216" height="52" rx="10" fill="none" stroke="#E14817" stroke-width="2" opacity="0">
-      <animate attributeName="opacity" dur="6.0s" begin="5.0s" repeatCount="indefinite" values="0;1;0;0" keyTimes="0;0.05;0.1500;1"/></rect>
-<circle r="5" fill="#F8EDE5" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="0.0s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#pi0"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
-<circle r="5" fill="#F8EDE5" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="0.25s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#pi1"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="0.25s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
-<circle r="5" fill="#F8EDE5" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="0.5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#pi2"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="0.5s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
-<circle r="5" fill="#F8EDE5" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="0.75s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#pi3"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="0.75s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
-<circle r="5" fill="#E14817" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="3.2s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#po0"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="3.2s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
-<circle r="5" fill="#E14817" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="3.4000000000000004s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#po1"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="3.4000000000000004s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
-<circle r="5" fill="#E14817" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="3.6s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#po2"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="3.6s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
-<circle r="5" fill="#E14817" opacity="0" filter="url(#glow)">
-      <animateMotion dur="6.0s" begin="3.8000000000000003s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.2000;1" calcMode="linear"><mpath href="#po3"/></animateMotion>
-      <animate attributeName="opacity" dur="6.0s" begin="3.8000000000000003s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.1800;0.2000;1"/>
-    </circle>
+<g clip-path="url(#hwin)">
+<rect width="1200" height="640" fill="#170A05"/><rect width="1200" height="640" fill="url(#hgrid)"/>
+<ellipse cx="180" cy="40" rx="420" ry="300" fill="url(#hg1)"/><ellipse cx="1040" cy="560" rx="360" ry="260" fill="url(#hg2)"/>
+<rect width="1200" height="44" fill="#22100A"/><line x1="0" y1="44" x2="1200" y2="44" stroke="#F8EDE5" stroke-opacity=".1"/>
+<circle cx="28" cy="22" r="6" fill="#E14817"/><circle cx="50" cy="22" r="6" fill="#F2951C"/><circle cx="72" cy="22" r="6" fill="#87888A"/>
+<text x="600" y="27" class="mono" font-size="13" fill="#87888A" text-anchor="middle" letter-spacing="0.5">labs64.io-customer-portal · /customer-portal</text>
+<text x="64" y="100" class="sans" font-size="13" font-weight="500" fill="#F08B53" letter-spacing="3.6">LABS64.IO  ·  CUSTOMER PORTAL</text>
+<text x="64" y="156" class="sans" font-size="48" font-weight="700" fill="#F8EDE5" letter-spacing="-1.4">A portal your customers sign in to.</text>
+<text x="64" y="212" class="sans" font-size="48" font-weight="700" fill="#E14817" letter-spacing="-1.4">One static image, any cluster.</text>
+<text x="1136" y="212" class="mono" font-size="14" fill="#F8EDE5" fill-opacity="0.6" text-anchor="end">Vue 3  ·  Vite  ·  edge auth</text>
+<g><animateTransform attributeName="transform" type="translate" values="0,0;0,0;0,-80.36;0,-80.36;0,0" keyTimes="0;.35;.48;.75;.88" dur="6s" repeatCount="indefinite"/><polygon points="240,505 470,549 700,505 700,517 470,561 240,517" fill="#170A05" stroke="#F8EDE5" stroke-opacity=".25"/><polygon points="240,505 470,461 700,505 470,549" fill="#170A05"/><polygon points="240,505 470,461 700,505 470,549" fill="#F8EDE5" fill-opacity="0.05" stroke="#F8EDE5" stroke-opacity=".7" stroke-width="1.5"/></g><g><animateTransform attributeName="transform" type="translate" values="0,0;0,0;0,-27.06;0,-27.06;0,0" keyTimes="0;.35;.48;.75;.88" dur="6s" repeatCount="indefinite"/><polygon points="240,440 470,484 700,440 700,452 470,496 240,452" fill="#170A05" stroke="#F8EDE5" stroke-opacity=".25"/><polygon points="240,440 470,396 700,440 470,484" fill="#170A05"/><polygon points="240,440 470,396 700,440 470,484" fill="#F8EDE5" fill-opacity="0.08" stroke="#F8EDE5" stroke-opacity=".7" stroke-width="1.5"/></g><g><animateTransform attributeName="transform" type="translate" values="0,0;0,0;0,26.24;0,26.24;0,0" keyTimes="0;.35;.48;.75;.88" dur="6s" repeatCount="indefinite"/><polygon points="240,375 470,419 700,375 700,387 470,431 240,387" fill="#170A05" stroke="#F8EDE5" stroke-opacity=".25"/><polygon points="240,375 470,331 700,375 470,419" fill="#170A05"/><polygon points="240,375 470,331 700,375 470,419" fill="#F2951C" fill-opacity="0.16" stroke="#F2951C" stroke-opacity=".7" stroke-width="1.5"/></g><g><animateTransform attributeName="transform" type="translate" values="0,0;0,0;0,79.53999999999999;0,79.53999999999999;0,0" keyTimes="0;.35;.48;.75;.88" dur="6s" repeatCount="indefinite"/><polygon points="240,310 470,354 700,310 700,322 470,366 240,322" fill="#170A05" stroke="#F8EDE5" stroke-opacity=".25"/><polygon points="240,310 470,266 700,310 470,354" fill="#170A05"/><polygon points="240,310 470,266 700,310 470,354" fill="#E14817" fill-opacity="0.3" stroke="#E14817" stroke-opacity=".7" stroke-width="1.5"/><g transform="translate(470 310) scale(1 .5) rotate(-45)" opacity=".85"><rect x="-70" y="-70" width="140" height="22" rx="4" fill="#F8EDE5" fill-opacity=".5"/><rect x="-70" y="-38" width="64" height="108" rx="4" fill="#F8EDE5" fill-opacity=".25"/><rect x="4" y="-38" width="66" height="50" rx="4" fill="#E14817" fill-opacity=".7"/><rect x="4" y="20" width="66" height="50" rx="4" fill="#F8EDE5" fill-opacity=".25"/></g></g><g><animate attributeName="opacity" values="1;1;.15;.15;1" keyTimes="0;.35;.45;.78;.88" dur="6s" begin="0s" repeatCount="indefinite"/><path d="M708,310 H790" stroke="#F8EDE5" stroke-opacity=".25" stroke-dasharray="2 4"/><text x="800" y="308" class="sans" font-size="16" font-weight="700" fill="#F8EDE5">Vue 3 app</text><text x="800" y="326" class="mono" font-size="12" fill="#F08B53">account · team · billing</text><path d="M708,375 H790" stroke="#F8EDE5" stroke-opacity=".25" stroke-dasharray="2 4"/><text x="800" y="373" class="sans" font-size="16" font-weight="700" fill="#F8EDE5">Static files</text><text x="800" y="391" class="mono" font-size="12" fill="#F08B53">dist/ · no server code</text><path d="M708,440 H790" stroke="#F8EDE5" stroke-opacity=".25" stroke-dasharray="2 4"/><text x="800" y="438" class="sans" font-size="16" font-weight="700" fill="#F8EDE5">nginx, unprivileged</text><text x="800" y="456" class="mono" font-size="12" fill="#F08B53">non-root · read-only fs</text><path d="M708,505 H790" stroke="#F8EDE5" stroke-opacity=".25" stroke-dasharray="2 4"/><text x="800" y="503" class="sans" font-size="16" font-weight="700" fill="#F8EDE5">Any host</text><text x="800" y="521" class="mono" font-size="12" fill="#F08B53">Kubernetes · Docker · CDN</text></g><g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.46;.5;.75;.8" dur="6s" begin="0s" repeatCount="indefinite"/><text x="800" y="412" class="sans" font-size="22" font-weight="700" fill="#E14817">one static image</text><text x="800" y="434" class="mono" font-size="12" fill="#F08B53">~25 MB · any cluster</text></g><rect x="64" y="262" width="176" height="54" rx="10" fill="#F8EDE5" fill-opacity=".05" stroke="#F8EDE5" stroke-opacity=".2"/><circle cx="88" cy="289" r="11" fill="#F2951C"/><text x="108" y="285" class="sans" font-size="14" font-weight="700" fill="#F8EDE5">Dana · Acme</text><text x="108" y="302" class="mono" font-size="11" fill="#F08B53">signed in</text><path d="M72,344 v-8 a8,8 0 0 1 16,0 v8" fill="none" stroke="#E14817" stroke-width="2"/><rect x="68" y="344" width="24" height="16" rx="3" fill="#E14817"/><text x="100" y="358" class="mono" font-size="12" fill="#F8EDE5" fill-opacity="0.8">OIDC at the edge</text><text x="64" y="540" class="mono" font-size="11.5" fill="#87888A">the portal never sees a password</text>
 <text x="64" y="598" class="mono" font-size="13" fill="#87888A">Apache-2.0 · Vue 3 · Vite · nginx</text>
-<text x="1136" y="598" text-anchor="end" class="mono" font-size="13" fill="#F08B53">labs64.io/docs</text>
-<rect x="0" y="636" width="1200" height="4" fill="#E14817" opacity=".9">
-  <animate attributeName="width" dur="6.0s" repeatCount="indefinite" values="0;1200" calcMode="linear"/></rect>
-</g>
-<rect x=".5" y=".5" width="1199" height="639" rx="18" fill="none" stroke="#F8EDE5" stroke-opacity=".12"/>
-</svg>
+<text x="1136" y="598" class="mono" font-size="13" fill="#F08B53" text-anchor="end">labs64.io/docs</text>
+<rect x="0" y="636" width="1200" height="4" fill="#E14817" opacity=".9"><animate attributeName="width" dur="6s" repeatCount="indefinite" values="0;1200"/></rect>
+</g><rect x=".5" y=".5" width="1199" height="639" rx="18" fill="none" stroke="#F8EDE5" stroke-opacity=".12"/></svg>
