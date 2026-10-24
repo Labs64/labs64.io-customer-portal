@@ -11,7 +11,7 @@
 
 <p align="center"><img src="docs/assets/customer-portal-hero.svg" alt="Customer Portal: An exploded view of the Customer Portal image: a Vue 3 app, static files, unprivileged nginx and any host collapse into one static image, while sign-in happens with OIDC at the gateway edge." width="880"></p>
 
-[Why Customer Portal?](#why-customer-portal) · [Documentation](https://labs64.io/docs/modules/customer-portal/) · [Build and test](#build-and-test) · [Ecosystem](#the-labs64io-ecosystem) · [labs64.io](https://labs64.io)
+[**Get started**](https://labs64.io/docs/modules/customer-portal/#quick-start) · [Features](#features) · [Architecture](https://labs64.io/docs/modules/customer-portal/#architecture) · [AI agents](#using-customer-portal-with-ai-agents) · [Ecosystem](#the-labs64io-ecosystem) · [Documentation](https://labs64.io/docs/modules/customer-portal/) · [labs64.io](https://labs64.io)
 
 > [!NOTE]
 > Customer Portal is currently a front-end shell: a Vue 3 single-page app with a home page and a shopping-cart page. A Java backend is planned but not implemented, and the published image is available under the `edge` tag.
@@ -35,48 +35,55 @@ Customers want to manage their account without writing to support, and the page 
 - You need a finished self-service product today: this is a shell with a home page and a cart page, and the backend is planned.
 - You need server-side rendering or a CMS.
 
-## Documentation
+## Features
 
-Install, configure and operate Customer Portal in the **[Customer Portal documentation](https://labs64.io/docs/modules/customer-portal/)**.
+- **Vue 3 SPA**: Composition API, Bootstrap 5 and Bootstrap Vue Next.
+- **Module federation**: `@originjs/vite-plugin-federation` is available for composing micro-frontends.
+- **Small, safe image**: multi-stage build, served by unprivileged nginx.
+- **Tested**: unit tests with Vitest, end-to-end tests with Playwright, linted with ESLint.
 
-[Quick Start](https://labs64.io/docs/modules/customer-portal/#quick-start) · [Configuration](https://labs64.io/docs/modules/customer-portal/#configuration)
+## What is here today
 
-New to Labs64.IO? The [Quickstart](https://labs64.io/docs/getting-started/quickstart.html) puts the platform on any Kubernetes cluster in about five minutes.
+| In the repository | Planned |
+|---|---|
+| Vue 3 + Vite + TypeScript single-page app with a home page and a shopping-cart page | `customer-portal-be`, a Java backend |
+| Multi-stage Docker build served by unprivileged nginx | Account, subscription and order views backed by the platform APIs |
+| Unit tests (Vitest), end-to-end tests (Playwright), ESLint | Runtime configuration through a mounted file |
+| Helm chart and a published `edge` image | A tagged release image |
 
-## Build and test
+## Using Customer Portal with AI agents
 
-```bash
-cd customer-portal-fe
-npm install
-npm run dev          # hot-reload dev server (:8080)
-npm run test:unit    # Vitest
-npm run test:e2e     # Playwright
-npm run lint         # ESLint
-```
+Customer Portal is a human-facing app, so agents mostly work **on** it rather than **through** it.
 
-Needs Node and npm (Docker for the image). Working on the code with an AI agent? [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md) describe the layout, conventions and checks.
+- **Test commands are explicit.** `npm run test:unit`, `npm run test:e2e` and `npm run lint` are the checks an agent should run before proposing a change.
+- **Working on the code with an agent?** [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md) describe the layout, conventions and test commands.
 
 ## The Labs64.IO Ecosystem
 
-This repository is part of the [Labs64.IO Ecosystem](https://labs64.io): open-source building blocks for secure commerce platforms. Every module is documented at [labs64.io/docs](https://labs64.io/docs/).
+Customer Portal is one module of the [Labs64.IO Ecosystem](https://labs64.io); [every module is documented here](https://labs64.io/docs/).
 
-| Module | What it does |
-|---|---|
-| [**AuditFlow**](https://github.com/Labs64/labs64.io-auditflow) | Publish once, route anywhere, lose nothing |
-| [**Auth Gateway**](https://github.com/Labs64/labs64.io-authproxy) | One authenticated edge for every module |
-| [**Payment Gateway**](https://github.com/Labs64/labs64.io-payment-gateway) | One API across multiple payment providers |
-| [**Checkout**](https://github.com/Labs64/labs64.io-checkout) | Whitelabel checkout and order workflow |
-| [**Customer Portal**](https://github.com/Labs64/labs64.io-customer-portal) | Self-service portal for your customers |
-
-Built on [Commons](https://github.com/Labs64/labs64.io-commons), deployed with [Helm Charts](https://github.com/Labs64/labs64.io-helm-charts), developed in the [Workspace](https://github.com/Labs64/labs64.io-workspace), verified by [Tests](https://github.com/Labs64/labs64.io-tests) and documented in [Docs](https://github.com/Labs64/labs64.io-docs). Also from Labs64: [NetLicensing](https://netlicensing.io) for licensing-as-a-service and [GuideChimp](https://www.labs64.com/guidechimp/) for guided product tours.
+| Module | What it does | Link |
+|---|---|---|
+| **AuditFlow** | Audit-event routing pipeline | [labs64.io-auditflow](https://github.com/Labs64/labs64.io-auditflow) |
+| **API Gateway** | Authenticating, policy-enforcing edge for all modules | [labs64.io-authproxy](https://github.com/Labs64/labs64.io-authproxy) |
+| **Payment Gateway** | One API over multiple payment providers | [labs64.io-payment-gateway](https://github.com/Labs64/labs64.io-payment-gateway) |
+| **Checkout** | Embeddable, brandable checkout | [labs64.io-checkout](https://github.com/Labs64/labs64.io-checkout) |
+| **Customer Portal** | Customer self-service UI | [labs64.io-customer-portal](https://github.com/Labs64/labs64.io-customer-portal) |
+| **Commons** | Shared Java and Python libraries | [labs64.io-commons](https://github.com/Labs64/labs64.io-commons) |
+| **Helm Charts** | Kubernetes deployment for every module | [labs64.io-helm-charts](https://github.com/Labs64/labs64.io-helm-charts) |
+| **Workspace** | Dev container and multi-repo tooling | [labs64.io-workspace](https://github.com/Labs64/labs64.io-workspace) |
+| **Tests** | Cross-module regression suite | [labs64.io-tests](https://github.com/Labs64/labs64.io-tests) |
+| **Docs** | Published documentation | [labs64.io-docs](https://github.com/Labs64/labs64.io-docs) |
+| **NetLicensing** | Licensing-as-a-Service: license and entitlement management | [netlicensing.io](https://netlicensing.io) |
+| **GuideChimp** | Interactive guided product tours | [labs64.com/guidechimp](https://www.labs64.com/guidechimp/) |
 
 ## Contributing
 
-We would love your help. Because the portal is young, shaping what it should do first is as valuable as code: open an issue describing what your customers need. Fork the repository, make your change on a branch, run the checks described in [`AGENTS.md`](AGENTS.md) and open a pull request. Not sure whether an idea fits? Open an issue first.
+We would love your help. Because the portal is young, shaping what it should do first is as valuable as code: open an issue describing what your customers need. Fork the repository, make your change on a branch, run the checks described in [`AGENTS.md`](AGENTS.md) and open a pull request. Not sure whether an idea fits? Open an issue first and we will talk it through; that is a perfectly good way to start.
 
 ## License
 
-Open source under the [Apache License 2.0](LICENSE): use it, change it and ship it commercially.
+Everything in this repository is open source under the [Apache License 2.0](LICENSE): you can use it, change it and ship it commercially. The core of the *Labs64.IO Ecosystem* is free forever; community modules are Apache-2.0 licensed.
 
 ---
 
