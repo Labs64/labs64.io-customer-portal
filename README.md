@@ -11,7 +11,7 @@
 
 <p align="center"><img src="docs/assets/customer-portal-hero.svg" alt="Customer Portal: An exploded view of the Customer Portal image: a Vue 3 app, static files, unprivileged nginx and any host collapse into one static image, while sign-in happens with OIDC at the gateway edge." width="880"></p>
 
-[**Get started**](https://labs64.io/docs/modules/customer-portal/#quick-start) · [Features](#features) · [Architecture](https://labs64.io/docs/modules/customer-portal/#architecture) · [AI agents](#using-customer-portal-with-ai-agents) · [Ecosystem](#the-labs64io-ecosystem) · [Documentation](https://labs64.io/docs/modules/customer-portal/) · [labs64.io](https://labs64.io)
+[**Get started**](https://labs64.io/docs/modules/customer-portal/#quick-start) · [Features](#features) · [Architecture](https://labs64.io/docs/modules/customer-portal/#architecture) · [AI agents](#using-it-with-ai-agents) · [Ecosystem](#the-labs64io-ecosystem) · [Documentation](https://labs64.io/docs/modules/customer-portal/) · [labs64.io](https://labs64.io)
 
 > [!NOTE]
 > Customer Portal is currently a front-end shell: a Vue 3 single-page app with a home page and a shopping-cart page. A Java backend is planned but not implemented, and the published image is available under the `edge` tag.
@@ -51,12 +51,9 @@ Customers want to manage their account without writing to support, and the page 
 | Unit tests (Vitest), end-to-end tests (Playwright), ESLint | Runtime configuration through a mounted file |
 | Helm chart and a published `edge` image | A tagged release image |
 
-## Using Customer Portal with AI agents
+## Using it with AI agents
 
-Customer Portal is a human-facing app, so agents mostly work **on** it rather than **through** it.
-
-- **Test commands are explicit.** `npm run test:unit`, `npm run test:e2e` and `npm run lint` are the checks an agent should run before proposing a change.
-- **Working on the code with an agent?** [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md) describe the layout, conventions and test commands.
+Customer Portal is a human-facing app, so agents mostly work on it rather than through it. The [guide for AI agents](https://labs64.io/docs/introduction/ai-agents.html) covers authentication, retries and errors across all modules. Working on this repository with an agent? [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md) describe the layout, conventions and test commands.
 
 ## The Labs64.IO Ecosystem
 
