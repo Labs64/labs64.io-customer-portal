@@ -11,16 +11,16 @@ Customer-facing portal — Vue 3 frontend SPA. Java backend planned but not yet 
 
 ## Critical guardrails
 
-1. **Never hardcode credentials or environment-specific URLs** in the bundle. Runtime configuration is `env.json`, mounted as a ConfigMap, so one image serves every environment.
+1. **Never hardcode credentials, environment-specific URLs or other configuration values** in the bundle. Configuration reaches the app at runtime from outside the image, so one image serves every environment: on Kubernetes the chart writes `ui.application.runtimeEnv.env` into a ConfigMap that is mounted as `env.json`. Code that needs a configuration value reads it from there at startup instead of building it in.
 2. **The image stays non-root.** The nginx-based UI image runs as uid 101 (the workspace's documented exception to `l64user`); do not move it back to root.
-3. **No backend exists yet.** Do not document or call an API that is not in a published contract.
+3. **Only document or call APIs that are in a published contract.**
 
 ## Frontend details
 
 - Vue 3 Composition API, Bootstrap 5 + Bootstrap Vue Next.
 - E2E: Playwright. Unit: Vitest. Linting: ESLint + Prettier.
 - Module federation available (`@originjs/vite-plugin-federation`) but usage TBD.
-- Runtime config: `env.json` mounted as ConfigMap in K8s.
+- Runtime configuration: the chart provides `env.json` from a ConfigMap, but the app does not read it yet; the only build-time settings today are `VITE_ROUTER_HASH_MODE` and the `ecommerce` remote address in `vite.config.ts`.
 
 ## Build, run, test
 

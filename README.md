@@ -9,7 +9,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![📖 Documentation](https://img.shields.io/badge/📖-Documentation-AB6543.svg)](https://labs64.io/docs/modules/customer-portal/)
 
-<p align="center"><img src="docs/assets/customer-portal-hero.svg" alt="Customer Portal: An exploded view of the Customer Portal image: a Vue 3 app, static files, unprivileged nginx and any host collapse into one static image, while sign-in happens with OIDC at the gateway edge." width="880"></p>
+<p align="center"><img src="docs/assets/customer-portal-hero.svg" alt="Customer Portal: An exploded view of the Customer Portal image: a Vue 3 app, static files, unprivileged nginx and any host collapse into one static image that is served on a public route with no token." width="880"></p>
 
 [**Get started**](https://labs64.io/docs/modules/customer-portal/#quick-start) · [Features](#features) · [Architecture](https://labs64.io/docs/modules/customer-portal/#architecture) · [AI agents](#using-it-with-ai-agents) · [Ecosystem](#the-labs64io-ecosystem) · [Documentation](https://labs64.io/docs/modules/customer-portal/) · [labs64.io](https://labs64.io)
 
@@ -21,13 +21,13 @@
 Customers want to manage their account without writing to support, and the page that lets them should be deployed and secured like the rest of your platform. Customer Portal is the front-end shell for that.
 
 1. **One static image.** A multi-stage build produces files served by unprivileged nginx, so it runs on any cluster or static host.
-2. **Fits the edge.** Authentication is handled at the API gateway (OIDC/JWT); the app itself is static files.
+2. **Fits the edge.** The app is static files served by unprivileged nginx and does no authentication itself. It is meant to be served on a public route that needs no token, so it must not contain secrets or customer data. In the reference Labs64.IO environment the chart exposes it as a public route.
 3. **Built to be composed.** Module federation support lets micro-frontends plug into the portal.
 
 **A good fit if**
 
 - You are on the Labs64.IO platform and want a customer-facing app that deploys the same way as the services.
-- You prefer a static, cache-friendly front end with authentication handled at the gateway.
+- You prefer a static, cache-friendly front end served on a public route, with no authentication in the app.
 - You want a Vue 3 starting point you can extend, with unit and end-to-end tests already wired.
 
 **Probably not what you need if**
