@@ -3,11 +3,11 @@
 **A self-service portal your customers sign in to.**
 *Part of the [Labs64.IO Ecosystem](https://labs64.io): the customer-facing single-page app of the platform.*
 
-[![CI](https://github.com/Labs64/labs64.io-customer-portal/actions/workflows/labs64io-fe-ci.yml/badge.svg)](https://github.com/Labs64/labs64.io-customer-portal/actions/workflows/labs64io-fe-ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/Labs64/labs64.io-customer-portal/labs64io-fe-ci.yml?label=CI&logo=github)](https://github.com/Labs64/labs64.io-customer-portal/actions/workflows/labs64io-fe-ci.yml)
 [![Docker Image Version](https://img.shields.io/docker/v/labs64/customer-portal-ui?label=Docker&logo=docker&logoColor=white&color=1C90ED)](https://hub.docker.com/r/labs64/customer-portal-ui)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/labs64io-helm-charts)](https://artifacthub.io/packages/helm/labs64io-helm-charts/customer-portal)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![📖 Documentation](https://img.shields.io/badge/📖-Documentation-AB6543.svg)](https://labs64.io/docs/modules/customer-portal/)
+[![Labs64.IO Ecosystem](https://img.shields.io/badge/Labs64.IO-Ecosystem-E14817.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii01IC01IDE1NSAxNTUiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0zIDNoMTM5djEzOUgzWk02OSAzdjEzOWg3VjNaTTQzIDQzdjU5aDI2VjQzWk03NiA0M3Y1OWgyNlY0M1oiLz48cGF0aCBmaWxsPSIjYmJiIiBkPSJNNDkgNDloNDd2NDdINDlaIi8%2BPC9zdmc%2B)](https://labs64.io/docs/services/)
 
 <p align="center"><img src="docs/assets/customer-portal-hero.svg" alt="Customer Portal: An exploded view of the Customer Portal image: a Vue 3 app, static files, unprivileged nginx and any host collapse into one static image that is served on a public route with no token." width="880"></p>
 
